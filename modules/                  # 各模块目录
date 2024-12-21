@@ -1,0 +1,4 @@
+# 创建子文件夹（如果不存在的话）
+modules_folder = './modules/finance'
+Dir.mkdir(modules_folder) unless Dir.exist?(modules_folder)
+puts "文件夹 #{modules_folder} 已创建！"
