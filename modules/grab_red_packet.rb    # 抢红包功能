@@ -1,0 +1,11 @@
+def grab_red_packet(bot, chat_id, user_id, red_packet_id, users, red_packets)
+  if red_packets[red_packet_id] && !red_packets[red_packet_id]['amounts'].empty?
+    amount = red_packets[red_packet_id]['amounts'].pop
+    users[user_id]['balance'] += amount
+    save_data(RED_PACKET_FILE, red_packets)
+    save_data(USER_DATA_FILE, users)
+    bot.api.send_message(chat_id: chat_id, text: "抢红包成功！您获得了 #{amount}！")
+  else
+    bot.api.send_message(chat_id: chat_id, text: "红包已被抢完或不存在！")
+  end
+end
