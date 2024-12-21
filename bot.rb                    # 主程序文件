@@ -12,7 +12,7 @@ require './modules/minesweeper'
 require './modules/admin_control'
 require './modules/admin_infinite'
 
-TOKEN = '你的 Telegram Bot Token'
+TOKEN = '7594251898:AAHZOMv4F4WRZUg-SDrT0iPQgdPA8TsuDNU'
 
 # 数据存储文件夹
 DATA_FOLDER = './data'
