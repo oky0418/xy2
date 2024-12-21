@@ -1,0 +1,20 @@
+source 'https://rubygems.org'
+
+# 项目所需的主要 gem
+
+gem 'telegram-bot-ruby'  # 用于与 Telegram Bot API 交互
+
+# 用于处理 JSON 格式数据
+gem 'json'
+
+# 用于处理文件路径的 gem（如果需要）
+gem 'fileutils'
+
+# 用于文件夹创建等操作（如果需要）
+gem 'pathname'
+
+# 在开发和生产环境中都需要的 gem（例如：日志和调试工具）
+gem 'logger'
+
+# 用于管理和运行项目的环境（可选）
+gem 'dotenv'  # 如果你使用 .env 文件来管理 API token 等敏感信息
