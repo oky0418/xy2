@@ -1,0 +1,9 @@
+def withdraw(bot, chat_id, user_id, amount, users)
+  if users[user_id]['balance'] >= amount
+    users[user_id]['balance'] -= amount
+    save_data(USER_DATA_FILE, users)
+    bot.api.send_message(chat_id: chat_id, text: "提款成功！当前余额: #{users[user_id]['balance']}")
+  else
+    bot.api.send_message(chat_id: chat_id, text: "余额不足，无法提款！")
+  end
+end
