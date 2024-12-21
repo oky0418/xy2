@@ -1,15 +1,36 @@
 # 定义文件夹路径
+data_folder = './data'
 logs_folder = './data/logs'
 backup_folder = './data/backup'
 
-# 创建 logs 文件夹，如果不存在的话
+# 创建 data 文件夹（如果不存在的话）
+unless Dir.exist?(data_folder)
+  Dir.mkdir(data_folder)
+  puts "数据文件夹已创建: #{data_folder}"
+end
+
+# 创建 logs 文件夹（如果不存在的话）
 unless Dir.exist?(logs_folder)
   Dir.mkdir(logs_folder)
   puts "日志文件夹已创建: #{logs_folder}"
 end
 
-# 创建 backup 文件夹，如果不存在的话
+# 创建 backup 文件夹（如果不存在的话）
 unless Dir.exist?(backup_folder)
   Dir.mkdir(backup_folder)
   puts "备份文件夹已创建: #{backup_folder}"
+end
+
+# 创建 users.json 文件（如果不存在的话）
+users_file = './data/users.json'
+unless File.exist?(users_file)
+  File.write(users_file, "{}") # 创建一个空的 JSON 文件
+  puts "用户数据文件已创建: #{users_file}"
+end
+
+# 创建 red_packets.json 文件（如果不存在的话）
+red_packets_file = './data/red_packets.json'
+unless File.exist?(red_packets_file)
+  File.write(red_packets_file, "{}") # 创建一个空的 JSON 文件
+  puts "红包数据文件已创建: #{red_packets_file}"
 end
