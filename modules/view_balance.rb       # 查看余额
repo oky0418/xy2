@@ -1,0 +1,8 @@
+def view_balance(bot, chat_id, user_id, users, admin_id)
+  if user_id == admin_id
+    bot.api.send_message(chat_id: chat_id, text: "您的余额是: 无限")
+  else
+    balance = users[user_id]['balance']
+    bot.api.send_message(chat_id: chat_id, text: "您的余额是: #{balance}")
+  end
+end
