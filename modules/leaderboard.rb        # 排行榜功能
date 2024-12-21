@@ -1,0 +1,6 @@
+def leaderboard(bot, chat_id, users)
+  leaderboard = users.sort_by { |_id, data| -data['balance'] }
+                     .map.with_index(1) { |(id, data), index| "#{index}. 用户 #{id}: #{data['balance']}" }
+                     .join("\n")
+  bot.api.send_message(chat_id: chat_id, text: "玩家排行榜:\n#{leaderboard}")
+end
