@@ -1,0 +1,15 @@
+# 定义文件夹路径
+logs_folder = './data/logs'
+backup_folder = './data/backup'
+
+# 创建 logs 文件夹，如果不存在的话
+unless Dir.exist?(logs_folder)
+  Dir.mkdir(logs_folder)
+  puts "日志文件夹已创建: #{logs_folder}"
+end
+
+# 创建 backup 文件夹，如果不存在的话
+unless Dir.exist?(backup_folder)
+  Dir.mkdir(backup_folder)
+  puts "备份文件夹已创建: #{backup_folder}"
+end
