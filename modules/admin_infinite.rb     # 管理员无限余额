@@ -1,0 +1,10 @@
+def admin_infinite(bot, chat_id, user_id, text, users, admin_id)
+  if user_id == admin_id
+    target_id = text.match(/^\/setinfinite (\d+)$/)[1].to_i
+    users[target_id] ||= { 'balance' => Float::INFINITY }
+    save_data(USER_DATA_FILE, users)
+    bot.api.send_message(chat_id: chat_id, text: "已将用户 #{target_id} 的余额设置为无限")
+  else
+    bot.api.send_message(chat_id: chat_id, text: "您没有权限执行此操作！")
+  end
+end
