@@ -1,0 +1,11 @@
+def minesweeper(bot, chat_id, user_id, choice, users)
+  mines = Array.new(10) { rand(1..100) }
+  if mines.include?(choice)
+    bot.api.send_message(chat_id: chat_id, text: "Boom! 您踩到地雷了！")
+  else
+    reward = rand(10..100)
+    users[user_id]['balance'] += reward
+    save_data(USER_DATA_FILE, users)
+    bot.api.send_message(chat_id: chat_id, text: "安全！您获得了 #{reward}！")
+  end
+end
