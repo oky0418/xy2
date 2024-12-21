@@ -3,6 +3,15 @@ require 'json'
 
 TOKEN = '你的 Telegram Bot Token'
 
+# 数据存储文件夹
+DATA_FOLDER = './data'
+
+# 创建数据存储文件夹
+unless Dir.exist?(DATA_FOLDER)
+  Dir.mkdir(DATA_FOLDER)
+  puts "数据文件夹已创建: #{DATA_FOLDER}"
+end
+
 # 数据存储文件
 USER_DATA_FILE = './data/users.json'
 RED_PACKET_FILE = './data/red_packets.json'
