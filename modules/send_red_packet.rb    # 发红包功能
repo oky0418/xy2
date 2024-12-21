@@ -1,0 +1,15 @@
+def send_red_packet(bot, chat_id, user_id, total_amount, count, users, red_packets)
+  if users[user_id]['balance'] >= total_amount
+    users[user_id]['balance'] -= total_amount
+    red_packet_id = rand(1000..9999)
+    red_packets[red_packet_id] = {
+      'amounts' => Array.new(count) { rand(1..(total_amount / count * 2)) }.shuffle,
+      'creator' => user_id
+    }
+    save_data(RED_PACKET_FILE, red_packets)
+    save_data(USER_DATA_FILE, users)
+    bot.api.send_message(chat_id: chat_id, text: "红包创建成功！领取红包命令: /grab #{red_packet_id}")
+  else
+    bot.api.send_message(chat_id: chat_id, text: "余额不足，无法发红包！")
+  end
+end
